@@ -6,14 +6,14 @@ import '../../data/models/status/data_status.dart';
 
 part 'single_state_event.dart';
 
-class SingleStateBloc extends Bloc<GetDataEvent, SingleState> {
+class SingleStateBloc extends Bloc<SingleCardEvent, SingleState> {
   SingleStateBloc(this.cardRepo) : super(SingleState()) {
-    on<GetDataEvent>(getData);
+    on<SingleCardEvent>(getData);
   }
 
   final CardRepo cardRepo;
 
-  getData(GetDataEvent event, emit) async {
+  getData(SingleCardEvent event, emit) async {
     emit(state.copyWith(status: Status.LOADING));
     MyResponse myResponse = await cardRepo.getAllCards();
     if (myResponse.error == "") {

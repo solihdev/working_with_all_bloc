@@ -1,5 +1,3 @@
-// part of 'single_state_bloc.dart';
-
 import 'package:equatable/equatable.dart';
 import 'package:work_with_all_blocks/data/models/status/data_status.dart';
 
@@ -26,6 +24,5 @@ class SingleState extends Equatable {
   }
 
   @override
-  // TODO: implement props
   List<Object?> get props => [status, error, cards];
 }
