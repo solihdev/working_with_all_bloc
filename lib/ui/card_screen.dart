@@ -3,22 +3,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:work_with_all_blocks/bloc/card_bloc/card_event.dart';
 import 'package:work_with_all_blocks/bloc/card_bloc/card_bloc.dart';
 import 'package:work_with_all_blocks/bloc/card_bloc/card_state.dart';
-import 'package:work_with_all_blocks/data/models/card_model/card_model.dart';
+import 'package:work_with_all_blocks/data/api_service/api_service.dart';
 import 'package:work_with_all_blocks/data/repositories/card_repository.dart';
 
-class CardScreen extends StatefulWidget {
+class CardScreen extends StatelessWidget {
   const CardScreen({Key? key}) : super(key: key);
 
-  @override
-  State<CardScreen> createState() => _CardScreenState();
-}
-
-class _CardScreenState extends State<CardScreen> {
   hexColor(String colorHexCode) {
     String colorNew = '0xff$colorHexCode';
     colorNew = colorNew.replaceAll("#", "");
-    int colorint = int.parse(colorNew);
-    return colorint;
+    int colorInt = int.parse(colorNew);
+    return colorInt;
   }
 
   hexCardNumber(String colorHexCode) {
@@ -31,7 +26,7 @@ class _CardScreenState extends State<CardScreen> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          CardBloc(cardRepo: context.read<CardRepo>())..add(FetchAllCards()),
+          CardBloc(cardRepo: CardRepo(apiService: ApiService()))..add(FetchAllCards()),
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
