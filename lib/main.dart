@@ -5,5 +5,5 @@ import 'package:work_with_all_blocks/app/app_bloc_observer.dart';
 
 void main() {
   Bloc.observer = AppBlocObserver();
-  runApp( App());
+  runApp( const App());
 }
