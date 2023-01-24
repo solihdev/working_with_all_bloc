@@ -7,7 +7,7 @@ import '../../data/models/status/data_status.dart';
 part 'single_state_event.dart';
 
 class SingleStateBloc extends Bloc<SingleCardEvent, SingleState> {
-  SingleStateBloc(this.cardRepo) : super(SingleState()) {
+  SingleStateBloc({required this.cardRepo}) : super(SingleState()) {
     on<SingleCardEvent>(getData);
   }
 
