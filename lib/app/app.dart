@@ -4,8 +4,6 @@ import 'package:work_with_all_blocks/data/api_service/api_service.dart';
 import 'package:work_with_all_blocks/data/repositories/card_repository.dart';
 import 'package:work_with_all_blocks/ui/card_screen.dart';
 
-import '../bloc/card_bloc/card_event.dart';
-
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
@@ -13,7 +11,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider(
         create: (context) => CardRepo(apiService: ApiService()),
-        child: MyApp());
+        child: const MyApp());
   }
 }
 
