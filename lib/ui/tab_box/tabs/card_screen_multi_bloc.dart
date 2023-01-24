@@ -5,23 +5,10 @@ import 'package:work_with_all_blocks/bloc/multi_card_bloc/card_event.dart';
 import 'package:work_with_all_blocks/bloc/multi_card_bloc/card_state.dart';
 import 'package:work_with_all_blocks/data/api_service/api_service.dart';
 import 'package:work_with_all_blocks/data/repositories/card_repository.dart';
+import 'package:work_with_all_blocks/utils/my_utils.dart';
 
-class CardScreen extends StatelessWidget {
-  const CardScreen({Key? key}) : super(key: key);
-
-  hexColor(String colorHexCode) {
-    String colorNew = '0xff$colorHexCode';
-    colorNew = colorNew.replaceAll("#", "");
-    int colorInt = int.parse(colorNew);
-    return colorInt;
-  }
-
-  hexCardNumber(String colorHexCode) {
-    String colorNew = colorHexCode;
-    colorNew = colorNew.replaceAll(" ", "  ");
-    return colorNew;
-  }
-
+class CardScreenWithMultiBloc extends StatelessWidget {
+  const CardScreenWithMultiBloc({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

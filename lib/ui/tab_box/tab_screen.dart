@@ -2,8 +2,9 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:work_with_all_blocks/cubit/connectivity/connectivity_cubit.dart';
-import 'package:work_with_all_blocks/ui/tab_box/tabs/card_screen.dart';
+import 'package:work_with_all_blocks/ui/tab_box/tabs/card_screen_multi_bloc.dart';
 import 'package:work_with_all_blocks/ui/no_internet/no_internet_screen.dart';
+import 'package:work_with_all_blocks/ui/tab_box/tabs/card_screen_with_single.dart';
 
 class TabScreen extends StatefulWidget {
   const TabScreen({Key? key}) : super(key: key);
@@ -20,8 +21,8 @@ class _TabScreenState extends State<TabScreen> {
   @override
   Widget build(BuildContext context) {
     List pages=[
-      const CardScreen(),
-      Container(),
+      const CardScreenWithMultiBloc(),
+      const CardScreenWithSingleStateBloc(),
       Container(),
       Container(),
     ];
