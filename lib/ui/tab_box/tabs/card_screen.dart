@@ -28,9 +28,17 @@ class CardScreen extends StatelessWidget {
       create: (context) =>
           MultiCardBloc(cardRepo: CardRepo(apiService: ApiService()))..add(FetchAllCards()),
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
+          elevation: 0,
+          centerTitle: true,
+          backgroundColor: Colors.white,
           title: const Text(
-            "Cards Screen",
+            "Cards Screen with MultiBloc",
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: Colors.black
+            ),
           ),
         ),
         body: BlocBuilder<MultiCardBloc, MultiCardsState>(

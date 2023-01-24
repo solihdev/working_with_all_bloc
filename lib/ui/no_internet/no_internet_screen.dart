@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:work_with_all_blocks/cubit/connectivity/connectivity_cubit.dart';
 
-class NoInternetPage extends StatelessWidget {
+class NoInternetScreen extends StatelessWidget {
   VoidCallback voidCallback;
 
-  NoInternetPage({required this.voidCallback, Key? key}) : super(key: key);
+  NoInternetScreen({required this.voidCallback, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +19,22 @@ class NoInternetPage extends StatelessWidget {
             Navigator.pop(context);
           }
         },
-        child: const Scaffold(
-          body: Center(
-            child: Text("No internet connection"),
+        child: Scaffold(
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: SizedBox(
+                    height: 200,
+                    width: 200,
+                    child: Image.asset(
+                      "assets/images/no_internet.png",
+                      fit: BoxFit.cover,
+                    )),
+              ),
+              const SizedBox(height: 50,),
+              const Text("Internetingizni yoqing!",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 20),),
+            ],
           ),
         ),
       ),
