@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:work_with_all_blocks/bloc/card_bloc/card_event.dart';
-import 'package:work_with_all_blocks/bloc/card_bloc/crad_bloc.dart';
-import 'package:work_with_all_blocks/bloc/card_bloc/crad_state.dart';
+import 'package:work_with_all_blocks/bloc/card_bloc/card_bloc.dart';
+import 'package:work_with_all_blocks/bloc/card_bloc/card_state.dart';
 import 'package:work_with_all_blocks/data/repositories/card_repository.dart';
 
-class CarsScreenWithBlockProvider extends StatelessWidget {
-  const CarsScreenWithBlockProvider({Key? key}) : super(key: key);
+class CardScreen extends StatelessWidget {
+  const CardScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +16,10 @@ class CarsScreenWithBlockProvider extends StatelessWidget {
       )..add(FetchAllCards()),
       child: Scaffold(
         appBar: AppBar(
-          centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.white,
           title: const Text(
-            "Cars Screen With Local Provider",
+            "Cards Screen",
             style: TextStyle(color: Colors.black),
           ),
         ),
@@ -40,7 +39,7 @@ class CarsScreenWithBlockProvider extends StatelessWidget {
                   itemCount: state.cards.length,
                   itemBuilder: (context, index) {
                     return Container(
-                      margin: EdgeInsets.all(20),
+                      margin: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.black54,
