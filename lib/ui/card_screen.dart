@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:work_with_all_blocks/bloc/card_bloc/card_event.dart';
 import 'package:work_with_all_blocks/bloc/card_bloc/card_bloc.dart';
 import 'package:work_with_all_blocks/bloc/card_bloc/card_state.dart';
+import 'package:work_with_all_blocks/data/api_service/api_service.dart';
 import 'package:work_with_all_blocks/data/repositories/card_repository.dart';
 
 class CardScreen extends StatelessWidget {
@@ -11,16 +12,11 @@ class CardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CardBloc(
-          cardRepo: context.read<CardRepo>()
-      )..add(FetchAllCards()),
+      create: (context)=>CardBloc(cardRepo: CardRepo(apiService: ApiService()))..add(FetchAllCards()),
       child: Scaffold(
         appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.white,
           title: const Text(
             "Cards Screen",
-            style: TextStyle(color: Colors.black),
           ),
         ),
         body: BlocBuilder<CardBloc, CardsState>(
@@ -53,13 +49,18 @@ class CardScreen extends StatelessWidget {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(state.cards[index].bankName,style: TextStyle(fontSize: 30,color: Colors.white),),
+                                child: Text(
+                                  state.cards[index].bankName,
+                                  style: const TextStyle(
+                                      fontSize: 30, color: Colors.white),
+                                ),
                               ),
                               Container(
                                 width: 50,
                                 height: 50,
                                 color: Colors.white,
-                                child: Image.network(state.cards[index].iconImage),
+                                child:
+                                    Image.network(state.cards[index].iconImage),
                               ),
                             ],
                           ),
