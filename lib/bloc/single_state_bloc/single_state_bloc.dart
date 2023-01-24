@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:work_with_all_blocks/bloc/single_state/single_state_state.dart';
+import 'package:work_with_all_blocks/bloc/single_state_bloc/single_state_state.dart';
 import 'package:work_with_all_blocks/data/models/my_response/my_response.dart';
 import 'package:work_with_all_blocks/data/repositories/card_repository.dart';
 import '../../data/models/status/data_status.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:work_with_all_blocks/bloc/card_bloc/card_event.dart';
-import 'package:work_with_all_blocks/bloc/card_bloc/card_bloc.dart';
-import 'package:work_with_all_blocks/bloc/card_bloc/card_state.dart';
+import 'package:work_with_all_blocks/bloc/multi_card_bloc/card_bloc.dart';
+import 'package:work_with_all_blocks/bloc/multi_card_bloc/card_event.dart';
+import 'package:work_with_all_blocks/bloc/multi_card_bloc/card_state.dart';
 import 'package:work_with_all_blocks/data/api_service/api_service.dart';
 import 'package:work_with_all_blocks/data/repositories/card_repository.dart';
 
@@ -26,14 +26,14 @@ class CardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          CardBloc(cardRepo: CardRepo(apiService: ApiService()))..add(FetchAllCards()),
+          MultiCardBloc(cardRepo: CardRepo(apiService: ApiService()))..add(FetchAllCards()),
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
             "Cards Screen",
           ),
         ),
-        body: BlocBuilder<CardBloc, CardsState>(
+        body: BlocBuilder<MultiCardBloc, MultiCardsState>(
           builder: (context, state) {
             if (state is InitialCardsState) {
               return const Center(
