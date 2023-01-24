@@ -7,7 +7,7 @@ import 'package:work_with_all_blocks/cubit/multi_state_cubit/multi_state_cubit.d
 import 'package:work_with_all_blocks/cubit/single_state_cubit/single_state_cubit.dart';
 import 'package:work_with_all_blocks/data/api_service/api_service.dart';
 import 'package:work_with_all_blocks/data/repositories/card_repository.dart';
-import 'package:work_with_all_blocks/ui/tab_box/tabs/card_screen_multi_bloc.dart';
+import 'package:work_with_all_blocks/ui/tab_box/tabs/card_screen_multi_state_bloc.dart';
 import 'package:work_with_all_blocks/ui/tab_box/tab_screen.dart';
 
 class App extends StatelessWidget {

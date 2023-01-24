@@ -80,7 +80,7 @@ class CardScreenWithSingleStateBloc extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.download_for_offline_outlined),
+        child: const Icon(Icons.download_for_offline_outlined),
         onPressed: () {
           context.read<SingleStateBloc>().add(SingleCardEvent());
         },
